@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: tgbs
+  IMAGE_NAME: tweedegolf/tgbs
   VERSION: $GITHUB_SHA
 
 jobs:
