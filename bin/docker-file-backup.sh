@@ -25,20 +25,12 @@ if [ ! -z "$TGBS_BACKUP_PATH" ]; then
         done
     fi
 
-    TGBS_BACKUP_LOCKFILE=true
-    if [ -z "$TGBS_BACKUP_LOCK" ] || [ "$TGBS_BACKUP_LOCK" == "0" ] || [ "$TGBS_BACKUP_LOCK" == "false" ]; then
-        backup_cmd+=( "--no-lock" )
-        TGBS_BACKUP_LOCKFILE=false
-    fi
-
     backup_cmd+=( "$TGBS_BACKUP_PATH" )
 
     if [ "${#TGBS_BACKUP_TAGS_CLEAN[@]}" -gt 0 ]; then
         IFS=',' echoerr "--- Using tags for restic snapshot: ${TGBS_BACKUP_TAGS_CLEAN[*]}"
     fi
-    if [ "${TGBS_BACKUP_LOCKFILE}" = false ]; then
-        echoerr "--- WARNING: Not using a lockfile"
-    fi
+
     echoerr "--- Creating restic snapshot from $TGBS_BACKUP_PATH to repository $RESTIC_REPOSITORY"
 
     # Run the restic command

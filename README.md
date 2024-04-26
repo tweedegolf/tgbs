@@ -36,9 +36,6 @@ The account id of the account that has write access to the backblaze repository.
 The secret account key of the account that has write access to the backblaze
 repository.
 
-### TGBS_BACKUP_LOCK
-If this is set to `1`, the `--no-lock` flag will not be set.
-
 ### TGBS_BACKUP_TAGS
 If this is set, then the backup is tagged with the value of this environment
 variable. Different tags can be comma-separated. If the variable is not set,
