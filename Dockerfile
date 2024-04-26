@@ -20,4 +20,4 @@ RUN curl -sSLfo /usr/local/bin/restic.bz2 \
 
 # Install backup scripts
 COPY bin/* /usr/local/bin/
-RUN ["/usr/local/bin/backup.sh"]
+CMD ["/usr/local/bin/backup.sh"]
