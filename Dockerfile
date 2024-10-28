@@ -1,7 +1,7 @@
 FROM ghcr.io/tweedegolf/debian:bookworm
 
 # Install postgresql client
-ENV POSTGRESQL_VERSION 16
+ENV POSTGRESQL_VERSION 17
 RUN install -d /usr/share/postgresql-common/pgdg \
     && curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc \
     && echo "deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] http://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
@@ -13,7 +13,7 @@ RUN install -d /usr/share/postgresql-common/pgdg \
     && rm -rf /var/lib/apt/lists/*
 
 # https://github.com/restic/restic/releases
-ENV RESTIC_VERSION 0.16.4
+ENV RESTIC_VERSION 0.17.2
 # install restic, see https://restic.readthedocs.io/en/stable/020_installation.html#official-binaries
 RUN curl -sSLfo /usr/local/bin/restic.bz2 \
     "https://github.com/restic/restic/releases/download/v${RESTIC_VERSION}/restic_${RESTIC_VERSION}_linux_amd64.bz2"  \
